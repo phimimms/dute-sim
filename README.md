@@ -17,6 +17,9 @@ Prior to running the TCP server, the `.env` file can be edited to configure the 
 
 * `PORT` - The port number of the TCP server
 * `ERROR_CODE` - The DUT-E error code
+  * Hardware Failure: `-124`
+  * Maintenance: `-126`
+  * Recalibration: `-123`, `-125`, `-127`, `-128`
 * `FUEL_BURN_RATE` - The rate at which the fuel is depleted by fuel level in millimeters per minute
 * `INITIAL_FUEL_LEVEL` - The initial fuel level in millimeters
 * `LEVEL_TO_VOLUME_MULTIPLIER` - The multiplier to convert fuel level to volume
