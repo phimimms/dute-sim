@@ -3,6 +3,8 @@ export enum DuteDataType {
   S16,
   S32,
   U8,
+  U16,
+  U32,
 }
 
 export function getBytes(value: number, dataType: DuteDataType): number[] {
@@ -39,6 +41,24 @@ export function getBytes(value: number, dataType: DuteDataType): number[] {
 
       const view = new DataView(buffer);
       view.setUint8(0, value);
+
+      return Array.from(new Uint8Array(buffer));
+    }
+
+    case DuteDataType.U16: {
+      const buffer = new ArrayBuffer(2);
+
+      const view = new DataView(buffer);
+      view.setUint16(0, value, true);
+
+      return Array.from(new Uint8Array(buffer));
+    }
+
+    case DuteDataType.U32: {
+      const buffer = new ArrayBuffer(4);
+
+      const view = new DataView(buffer);
+      view.setUint32(0, value, true);
 
       return Array.from(new Uint8Array(buffer));
     }

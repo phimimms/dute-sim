@@ -1,6 +1,6 @@
 {
   "name": "@phimimms/dute-sim",
-  "version": "0.1.0-alpha.2",
+  "version": "0.1.0-alpha.3",
   "description": "A TCP server to simulate the DUT-E fuel level sensor by Technoton",
   "scripts": {
     "prebuild": "npm run clean:build",

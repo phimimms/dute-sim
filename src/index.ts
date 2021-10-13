@@ -85,7 +85,7 @@ function _generateErrorCodeResponse(): Buffer {
     0x00, 0x00,
   ];
 
-  const checksum = computeChecksum(payload);
+  const [ checksum ] = getBytes(computeChecksum(payload), DuteDataType.U8);
 
   return Buffer.from([ ...payload, checksum ]);
 }
@@ -106,16 +106,16 @@ function _generateMetadataResponse(): Buffer {
     ...getBytes(Math.round(state.volume / 0.1), DuteDataType.S16),
     0x00, 0x00,
     0x00, 0x00,
+    0x00, 0x00, 0x00, 0x00,
     ...getBytes(Math.round(state.level / 0.1), DuteDataType.S32),
-    ...getBytes(Math.round(state.level / 0.1), DuteDataType.S32),
-    ...getBytes(Math.round(state.level / 0.1), DuteDataType.S32),
+    0x00, 0x00, 0x00, 0x00,
     0x00, 0x00,
     0x00,
-    ...getBytes(Math.round(state.percent / 0.4), DuteDataType.S8),
+    ...getBytes(Math.round(state.percent / 0.4), DuteDataType.U8),
     0x00, 0x00,
   ];
 
-  const checksum = computeChecksum(payload);
+  const [ checksum ] = getBytes(computeChecksum(payload), DuteDataType.U8);
 
   return Buffer.from([ ...payload, checksum ]);
 }
