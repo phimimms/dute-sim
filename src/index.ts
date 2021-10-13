@@ -80,7 +80,7 @@ function _handleConnection(connection: net.Socket) {
 function _generateErrorCodeResponse(): Buffer {
   const payload = [
     0x3E, 0xFF, 0x06,
-    ...getBytes(state.errorCode, DuteDataType.S8),
+    ...getBytes(state.errorCode, DuteDataType.U8),
     0x00, 0x00,
     0x00, 0x00,
   ];
@@ -103,11 +103,11 @@ function _generateMetadataResponse(): Buffer {
     0x00, 0x00,
     0x00, 0x00,
     0x00, 0x00,
-    ...getBytes(Math.round(state.volume / 0.1), DuteDataType.S16),
+    ...getBytes(Math.round(state.volume / 0.1), DuteDataType.U16),
     0x00, 0x00,
     0x00, 0x00,
     0x00, 0x00, 0x00, 0x00,
-    ...getBytes(Math.round(state.level / 0.1), DuteDataType.S32),
+    ...getBytes(Math.round(state.level / 0.1), DuteDataType.U32),
     0x00, 0x00, 0x00, 0x00,
     0x00, 0x00,
     0x00,
