@@ -111,7 +111,7 @@ function _generateMetadataResponse(): Buffer {
     ...getBytes(Math.round(state.level / 0.1), DuteDataType.S32),
     0x00, 0x00,
     0x00,
-    ...getBytes(Math.round(state.percent / 0.4), DuteDataType.U8),
+    ...getBytes(Math.round(state.percent / 0.4), DuteDataType.S8),
     0x00, 0x00,
   ];
 
