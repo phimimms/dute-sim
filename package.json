@@ -1,7 +1,7 @@
 {
   "name": "@phimimms/dute-sim",
-  "version": "0.1.0-alpha.0",
-  "description": "A TCP server to simulate the DUT-E fuel level sensor Controller by Technoton",
+  "version": "0.1.0-alpha.1",
+  "description": "A TCP server to simulate the DUT-E fuel level sensor by Technoton",
   "scripts": {
     "prebuild": "npm run clean:build",
     "build": "cross-env NODE_ENV=production rollup -c rollup.config.js",
